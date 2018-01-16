@@ -1,0 +1,116 @@
+/* General modal window styles */
+.modal-bg {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.modal-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+.modal-header {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    color: #5E5D5D;
+}
+
+.modal-body {
+    width: 100%;
+    height: calc(100% - 120px);
+    /* height: calc(100% - 60px); */
+}
+
+.close-modal {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background: url('../images/close.svg') 0 0;
+    background-size: cover;
+}
+
+.close-modal:hover {
+    cursor: pointer;
+}
+
+.modal-controls .btn-submit {
+    display: block;
+    margin: 0 auto 20px;
+    width: 20%;
+    height: 40px;
+}
+
+/* Add photo modal window*/
+#modal-upload-photo .modal-content {
+    width: 50%;
+    height: 80%;
+}
+
+.image-preview {
+    height: 250px;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.upload-photo {
+    display: none;
+}
+
+.upload-photo + label {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background: #F1F1F1;
+}
+
+.upload-photo + label:hover {
+    cursor: pointer;
+}
+
+.upload-photo + label img {
+    width: 100%;
+}
+
+.chips-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: #5E5D5D;
+    font-style: italic;
+}
+
+.image-tags {
+    width: 93%;
+    margin: 25px auto 0;
+}
+
+/* Add avatar modal window*/
+#modal-add-avatar .modal-content {
+    width: 40%;
+    height: 65%;
+}
+
+.cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:500px;
+    height:350px;
+  }

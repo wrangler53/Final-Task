@@ -1,0 +1,48 @@
+<div id="cabinet" class="container">
+    <div class="content">
+        <div class="content-header">
+            <div class="user-photo" ng-click="showAddAvatarModal()">
+                <img src="./images/user.svg">
+            </div>
+            <div class="user-name">{{user.name}}</div>
+
+            <div class="add-image">
+                <img src="./images/camera.svg" alt="Add photo" ng-click="showUploadPhotoModal()">
+            </div>         
+
+            <div class="logout" ng-click="logout()">
+                <div>Logout</div> 
+                <img src="./images/logout.svg" alt="Logout">
+            </div>
+        </div>
+        <div class="content-main">
+            <div class="cabinet-item photo-item" ng-if="userPhotos" ng-repeat="photo in userPhotos" ng-mouseleave="hideOnLeave(this)">
+                <img ng-src="{{photo.imageUrl}}" alt="{{photo.imageName}}" class="cabinet-photo">
+                
+                <div class="item-hover" ng-click="goToImagePage(photo)"></div>
+                
+                <div class="close-block icon-block" ng-click="deleteImage(photo)">
+                    <img src="./images/close-white.svg" class="close-icon">
+                </div>
+
+                <div class="share icon-block" ng-click="toggleShareBlock(this)">
+                    <img src="./images/share.svg" class="share-icon">
+                </div>
+                
+                <div class="sharing-block" ng-show="isShareBlockActive">
+                    <img src="./images/fb.svg" ng-click="shareFB(photo)">
+                </div>
+        
+                <div class="likes icon-block">
+                    <img src="./images/like-active.svg" class="like-icon">
+                    <span class="likes-num">1234</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add user`s avatar modal window -->
+<add-avatar-modal show="addAvatarModal" heading="Add Avatar"></add-avatar-modal>
+<!-- Upload photo modal window -->
+<upload-photo-modal show="uploadPhotoModal" heading="Upload Photo"></upload-photo-modal>

@@ -1,0 +1,373 @@
+@import 'reset.css';
+@import 'fonts.css';
+@import 'gallery.css';
+@import 'cabinet.css';
+@import 'contacts.css';
+@import 'about.css';
+@import 'image.css';
+@import 'user.css';
+@import 'modal.css';
+@import 'chips.css';
+
+header {    
+    height: 80px;
+    margin: 0 auto;
+    font-family: 'Raleway', sans-serif;
+}
+
+.header-container {
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 80px);
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    height: 100%;
+    width: 71%;
+}
+
+/*Burger menu*/
+/* initial style */
+#burger-btn {
+    display: none;
+    width: 30px;
+    margin-right: 10px;
+    z-index: 110;
+}
+
+#burger-btn .burger-line {
+    width: 30px;
+    height: 4px;
+    margin-bottom: 3px;
+    background: #5E5D5D;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+#burger-content {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 100%;
+    background: white;
+    z-index: 100;
+    transition: transform 0.5s;
+}
+
+/*if burger active*/
+/* btn styles */
+.burger-btn-style .burger-line:nth-of-type(1) {
+    transform-origin: 0% 0%;
+    transform: rotate(45deg) translate(-4px, -4px);;
+}
+
+.burger-btn-style .burger-line:nth-of-type(2) {
+    opacity: 0;
+}
+
+.burger-btn-style .burger-line:nth-of-type(3) {
+    transform-origin: 0% 100%;
+    transform: rotate(-45deg);
+}
+
+/* burger menu styles */
+.burger-style { 
+    transform: translate(-100%, 0);
+}
+
+#burger-content .login {
+    position: relative;
+    top: 25px;
+    font-size: 24px;
+    left: 10px;
+}
+
+#burger-content nav {
+    margin-top: 80px;
+}
+
+#burger-content nav li {
+    display: block;
+}
+
+#burger-content nav li a {
+    text-align: center;
+    font-size: 24px;
+}
+
+/*Logo*/
+.logo {
+    width: 133px;
+    height: 80px;
+    background: url('../test_photos/logo.png');
+}
+
+/*Menu*/
+nav li {
+    display: inline-block;
+}
+
+nav li a {
+    display: block;
+    padding: 10px;
+    color: #5E5D5D;
+    transition: color 0.3s;
+}
+
+nav li a:hover {
+    color: #4595F7;
+}
+
+/*Search input*/
+#search {
+    width: 100px;
+    border-radius: 20px;
+    padding: 10px;
+    -webkit-appearance: none;
+    outline: none;
+    border: 1px solid #5E5D5D;
+    transition: width 1s;
+    font-family: 'Raleway', sans-serif;
+    color: #5E5D5D;
+}
+
+#search::placeholder {
+    color: #5E5D5D;
+    font-family: 'Raleway', sans-serif;
+}
+
+#search:focus {
+    width: 500px;
+}
+
+/*Login*/
+.login {
+    padding: 10px;
+    cursor: pointer;
+    color: #5E5D5D;
+    font-weight: bold;
+}
+
+/*Authorization/Registration general styles*/
+.form-container {
+    width: 34%;
+}
+
+.form-container h1 {
+    margin-bottom: 40px;  
+    font-family: 'Raleway', sans-serif;
+    font-size: 56px;
+    color: #2C2C2B; 
+    text-align: center;
+}
+
+.form-container h3 {
+    font-family: 'Raleway', sans-serif;
+    color: #2C2C2B; 
+    font-size: 14px;
+    text-align: center;
+}
+
+.form-container h3 a {
+    font-family: 'Raleway', sans-serif;
+    color: #2C2C2B;
+    font-weight: bold;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input {
+    box-sizing: border-box;
+    border: 1px solid #ACA9A9;
+    width: 100%;
+    height: 50px;
+    padding: 0 12px;
+    margin-bottom: 30px;
+    outline: none;
+    font-family: 'Raleway', sans-serif;
+    color: #2C2C2B;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.btn-submit {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background: #4595F7;
+    border: none;
+    color: white;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background: #A0C8FA;
+}
+
+.btn-submit:disabled {
+    cursor: not-allowed;
+}
+
+form[name="regForm"] input.ng-invalid.ng-dirty,
+form[name="authForm"] input.ng-invalid.ng-dirty {
+    border: 1px solid red;
+}
+
+.error-msg {
+    position: absolute;
+    bottom: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    color: red;
+}
+
+/* General styles for photo block */
+.photo-item {
+    float: left;
+    position: relative;
+}
+
+.photo-item img.gallery-photo,
+.photo-item img.cabinet-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-item img.gallery-photo:hover {
+    cursor: pointer;
+}
+
+/* dark background on hover */
+.item-hover {
+    position: absolute;
+    visibility: hidden;
+    background: black; 
+    opacity: 0;
+    width: 100%; 
+    height: 100%;
+    top: 0;
+    transition: all 0.4s;
+}
+
+.photo-item:hover > .item-hover {
+    visibility: visible;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+/* General style for each icon */
+.photo-item .icon-block {
+    position: absolute;
+    visibility: hidden;
+    bottom: 20px;
+}
+
+.photo-item:hover > .icon-block {
+    visibility: visible;
+    cursor: pointer;
+}
+
+/*share icon*/
+.share {
+    right: 20px;
+}
+
+img.share-icon {
+    width: 23px; 
+}
+
+/*like icon and their count*/
+.likes {
+    left: 20px;
+}
+
+img.like-icon {
+    float: left;
+    width: 23px;  
+    margin-right: 5px;  
+}
+
+.likes-num {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    vertical-align: sub;
+}
+
+/*sharing icons*/
+.sharing-block {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+
+}
+
+.sharing-block:hover {
+    cursor: pointer;
+}
+
+.sharing-block img {
+    width: 100%;
+}
+
+/* User name */
+.user-name {
+    font-weight: bold;
+}
+
+/*Responsive design*/
+
+/*for iPad*/
+@media(max-width: 768px) {
+    .form-container {
+        width: 60%;
+    }
+}
+
+/*mobile*/
+@media(max-width: 580px) {
+    .form-container,
+    .header-container {
+        width: 100%;
+    }
+
+    #search,
+    #search:focus {
+        width: 120px;
+    }
+
+    header nav#desktop-menu,
+    .controls .login {
+        display: none;
+    }
+
+    #burger-btn {
+        display: block;
+    }
+}
+
+
+
+
+

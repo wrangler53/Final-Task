@@ -1,0 +1,19 @@
+{
+  "name": "final_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "Yaroslav Melnychuk",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.11",
+    "angular": "^1.6.7",
+    "angular-chips": "^1.0.11"
+  }
+}

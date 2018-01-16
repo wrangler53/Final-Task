@@ -1,0 +1,97 @@
+#image {
+    background: #F1F1F1;
+}
+
+#image .content {
+    height: 95%;
+    overflow-y: scroll;
+}
+
+.image-container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.image-container img {
+    display: block;
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+.image-info {
+    display: flex;
+    width: 95%;
+    margin: 20px auto 0;
+    align-items: center;
+}
+
+/* Chip styles */
+#image .image-tags {
+    text-align: center;
+}
+
+#image .default-chip {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px; 
+    font-family: 'Raleway', sans-serif;
+    color: #5E5D5D;
+    font-weight: bold;
+}
+
+#image .user-name {
+    font-family: 'Raleway', sans-serif;
+    color: #5E5D5D;
+}
+
+#image .user-name:hover,
+#image .user-photo:hover {
+    cursor: pointer;
+}
+
+
+#image .share {
+    position: relative;
+    margin-left: auto;
+    right: 10px;
+}
+
+
+/* Default class */
+#image .share .share-fb {
+    position: absolute;
+    width: 23px;
+    top: 0;
+    right: 0;
+    visibility: hidden;
+    transition: all .1s linear;
+}
+
+/* Class for visibility */
+#image .share .show-share-fb {
+    visibility: visible;
+    right: 30px;
+}
+
+#image .share:hover {
+    cursor: pointer;
+}
+
+#image .likes-num {
+    color: #5E5D5D;
+    font-weight: bold;
+}
+
+/* Scrollbar */
+#image .content::-webkit-scrollbar {
+    width: 10px;
+}
+
+#image .content::-webkit-scrollbar-track {
+    width: 20px;
+}
+
+#image .content::-webkit-scrollbar-thumb {
+    background-color: #CDCDCD;
+    border-radius: 10px;
+}

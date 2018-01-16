@@ -1,0 +1,21 @@
+<div id="authorization" class="container">
+    <div class="form-container">
+        <h1>Log in</h1>
+        <form name="authForm" ng-submit="authUser(user)" novalidate>
+            
+            <div class="input-wrapper">
+                <input type="email" name="email" id="email" class="input" placeholder="Email" ng-model="user.email" ng-pattern="emailRegexp" required>
+                <span ng-if="authForm.email.$dirty && authForm.email.$error.required" class="error-msg">Enter your Email</span>
+                <span ng-if="authForm.email.$dirty && authForm.email.$error.pattern" class="error-msg">Uncorrect data fromat</span>
+            </div>
+
+            <div class="input-wrapper">
+                <input type="password" name="password" id="password" class="input" placeholder="Password" ng-model="user.password" required>
+                <span ng-if="authForm.password.$dirty && authForm.password.$error.required" class="error-msg">Enter your Password</span>
+            </div>
+
+            <input type="submit" value="GO" class="btn-submit" ng-disabled="authForm.$invalid">
+        </form>
+        <h3>Don`t have an account? <a ui-sref="registration">Sign up</a></h3>
+    </div>
+</div>

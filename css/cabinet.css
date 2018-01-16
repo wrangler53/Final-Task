@@ -1,0 +1,112 @@
+#cabinet {
+    background: #F1F1F1;
+}
+
+.content-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 25px 0;
+    font-family: 'Raleway', sans-serif;
+    color: #5E5D5D;
+}
+
+.content-main {
+    height: calc(100% - 160px);
+    overflow-y: scroll;
+}
+
+/* Custom scrollbar */
+.content-main::-webkit-scrollbar {
+    width: 10px;
+}
+
+.content-main::-webkit-scrollbar-track {
+    width: 20px;
+}
+
+.content-main::-webkit-scrollbar-thumb {
+    background-color: #CDCDCD;
+    border-radius: 10px;
+}
+
+.logout {
+    margin-left: auto;
+    font-weight: bold;
+    z-index: 10;
+    line-height: 30px;
+}
+
+.logout:hover {
+    cursor: pointer;
+}
+
+.logout div:first-child {
+    float: left;
+}
+
+.logout img {
+    width: 30px;
+    float: right;
+    margin-left: 9px;
+}
+
+/* User photo styles */
+.user-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 55px;
+    overflow: hidden;
+    margin-right: 10px;
+    z-index: 10;
+}
+
+.user-photo:hover {
+    cursor: pointer;
+}
+
+.user-photo img {
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Style for photo in cabinet */
+.cabinet-item {
+    width: 46vh;
+    height: 46vh;
+    margin: 0 25px 25px 0;
+    overflow: hidden;
+}
+
+.cabinet-item .close-block {
+    top: 20px;
+    right: 20px;
+    width: 15px;
+    height: 15px;
+}
+
+.cabinet-item img.close-icon {
+    width: 100%;
+}
+
+/* disable margin-right in 3rd photo */
+.cabinet-item:nth-child(3n){
+    margin: 0 0 25px 0;
+}
+
+/*Add image btn*/
+.add-image {
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+}
+
+.add-image img {
+    display: block;
+    width: 30px;
+    margin: 0 auto;
+}
+
+.add-image img:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appModule">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- AngularJS, ui-router, chips, image cropper-->
+        <script src="./node_modules/angular/angular.min.js"></script>
+        <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+        <script src="./node_modules/angular-chips/dist/angular-chips.min.js"></script>
+        <script src="./node_modules/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+
+        <!-- Google Maps -->        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAziS9OFqaLQqUpI2yGfElRBCucSkewzfE"></script>        
+
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCwwaI8RZ4txPOM_pjixLvUN-M-f7ydpEM",
+                authDomain: "final-project-a211e.firebaseapp.com",
+                databaseURL: "https://final-project-a211e.firebaseio.com",
+                projectId: "final-project-a211e",
+                storageBucket: "final-project-a211e.appspot.com",
+                messagingSenderId: "282362054415"
+            };
+            firebase.initializeApp(config);
+        </script>
+
+        <!-- Facebook -->
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId            : '1780384678923991',
+                    autoLogAppEvents : true,
+                    xfbml            : true,
+                    version          : 'v2.11'
+                });
+            };
+            
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <!-- Module, Controllers, Services, Components, Directives -->
+        <script src="./app-module.js"></script>
+        <script src="./services/map.js"></script>
+        <script src="./services/sharing.js"></script>
+        <script src="./services/authentification.js"></script>
+        <script src="./services/uploadPhotoService.js"></script>
+        <script src="./services/logout.js"></script>
+        <script src="./components/upload-photo-modal.js"></script>
+        <script src="./components/add-avatar-modal.js"></script>
+        <script src="./directives/upload-photo.js"></script>
+        <script src="./controllers/root-controller.js"></script>
+        <script src="./controllers/home-controller.js"></script>
+        <script src="./controllers/gallery-controller.js"></script>
+        <script src="./controllers/cabinet-controller.js"></script>
+        <script src="./controllers/authorization-controller.js"></script>
+        <script src="./controllers/registration-controller.js"></script>
+        <script src="./controllers/about-controller.js"></script>
+        <script src="./controllers/contacts-controller.js"></script>
+        <script src="./controllers/image-controller.js"></script>
+        <script src="./controllers/user-controller.js"></script>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./node_modules/ng-img-crop/compile/minified/ng-img-crop.css">
+    </head>
+
+    <body ng-controller="rootController">
+        <header>
+            <div class="header-container">
+                <div class="logo"></div>
+                <nav id="desktop-menu">
+                    <ul>
+                        <li>
+                            <a ui-sref="home">Main</a>
+                        </li>
+                        <li>
+                            <a ui-sref="gallery">Gallery</a>
+                        </li>
+                        <li>
+                            <a ui-sref="contacts">Contacts</a>
+                        </li>
+                        <li>
+                            <a ui-sref="about">About</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="controls">
+                    <input type="text" id="search" placeholder="Search...">
+                    <a ng-if="user.name" class="login" ui-sref="cabinet">{{user.name}}</a>
+                    <a ng-if="!user.name" class="login" ui-sref="authorization">Log In</a>
+                </div>
+
+                <!-- Burger menu -->
+                <!-- burger btn -->
+                <div id="burger-btn" ng-class="{'burger-btn-style': isBurgerActive}" ng-click="toggleBurger($event)">
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                </div>
+                <!-- burger content -->
+                <div ng-class="{'burger-style': isBurgerActive}" id="burger-content">
+                    <a ng-if="currentUserName" class="login" ui-sref="cabinet" ng-click="toggleBurger($event)">{{currentUserName}}</a>
+                    <a ng-if="!currentUserName" class="login" ui-sref="authorization" ng-click="toggleBurger($event)">Log In</a>
+                    <nav>
+                        <li><a ui-sref="home" ng-click="toggleBurger($event)">Main</a></li>
+                        <li><a ui-sref="gallery" ng-click="toggleBurger($event)">Gallery</a></li>
+                        <li><a ui-sref="contacts" ng-click="toggleBurger($event)">Contacts</a></li>
+                        <li><a ui-sref="about" ng-click="toggleBurger($event)">About</a></li>
+                    </nav>
+                </div>
+                
+            </div>
+        </header>
+        <main>
+            <ui-view>
+            </ui-view>
+        </main>
+    </body>
+</html>

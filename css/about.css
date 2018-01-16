@@ -1,0 +1,34 @@
+#about {
+    background: #F1F1F1;
+}
+
+#about .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#about .content-block {
+    margin-left: auto;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    color: #5E5D5D;
+}
+
+#about .content-block h1 {
+    width: 80%;
+    margin: 27px auto;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: left;
+}
+
+.content-block #text { 
+    width: 80%;
+    margin: 0 auto; 
+    font-size: 14px;
+    line-height: 22px;
+    text-align: justify;
+}
+

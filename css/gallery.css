@@ -1,0 +1,33 @@
+/* Custom scrollbar */
+#gallery {
+    height: calc(100vh - 80px);
+    overflow-y: scroll;
+}
+
+#gallery::-webkit-scrollbar {
+    width: 10px;
+}
+
+#gallery::-webkit-scrollbar-track {
+    width: 20px;
+}
+
+#gallery::-webkit-scrollbar-thumb {
+    background-color: #CDCDCD;
+    border-radius: 10px;
+}
+
+/* Style for photo in gallery */
+.gallery-item {
+    width: 445px;
+    height: 445px;
+}
+
+/*like checkbox*/
+.photo-item input[type="checkbox"] {
+    display: none;
+}
+
+.photo-item input[type="checkbox"] + label {
+    cursor: pointer;
+}

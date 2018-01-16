@@ -1,0 +1,78 @@
+#contacts {
+    background: #F1F1F1;
+}
+
+.content-block {
+    height: 80%;
+    width: 47%;
+    background: white;
+}
+
+#contacts .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Style of Contact us form block */
+#contact-us .form-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/*Text block*/
+#contact-us .form-container h1 {
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: left;
+    margin: 27px 0;
+    color: #5E5D5D;
+}
+
+#contact-us .form-container span {
+    font-family: 'Raleway', sans-serif;
+    color: #5E5D5D;
+}
+
+#contact-us .form-container div span:first-of-type {
+    font-weight: bold;
+}
+
+#contact-us .form-container div {
+    margin-bottom: 20px;
+}
+
+#contact-us .form-container #email a {
+    color:#5E5D5D;
+}
+
+/*Form style*/
+#contact-us form input,
+#contact-us form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;    
+    border: 1px solid #ACA9A9;
+    outline: none;
+    font-family: 'Raleway', sans-serif;
+    color: #2C2C2B;
+    font-size: 14px;
+    font-weight: 300;
+    resize: none;
+}
+
+#contact-us form input {
+    margin-bottom: 5px;
+}
+
+#contact-us form textarea {
+    height: 100px;
+}
+
+#contact-us .btn-send {
+    width: 60px;
+    height: 25px;
+    color: white;
+    font-size: 12px;
+}
