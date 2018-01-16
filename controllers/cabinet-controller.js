@@ -1,4 +1,4 @@
-appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentification', 'Logout', 'Sharing', function($scope, $state, $location, Authentification, Logout, Sharing) {
+appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentification', 'Sharing', function($scope, $state, $location, Authentification, Sharing) {
 
     // Get user`s images
     if(sessionStorage.length != 0) {
