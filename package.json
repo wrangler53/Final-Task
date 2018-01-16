@@ -9,11 +9,24 @@
   "author": "Yaroslav Melnychuk",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.0.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.4",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.5",
     "lite-server": "^2.3.0"
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.11",
     "angular": "^1.6.7",
-    "angular-chips": "^1.0.11"
+    "angular-chips": "^1.0.11",
+    "ng-img-crop": "^0.2.0"
   }
 }

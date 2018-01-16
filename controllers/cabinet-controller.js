@@ -11,6 +11,7 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
         console.log($scope.userPhotos);
     });
 
+    //Delete image
     $scope.deleteImage = function(photo) {
         // Delete from DB
         userImagesRef.child(photo.id).remove();

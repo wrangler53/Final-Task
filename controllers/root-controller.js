@@ -18,9 +18,5 @@ appModule.controller('rootController', ['$scope', 'Authentification', function($
     //     $scope.currentUserId = sessionStorage.getItem('currentUserId');
     // }
 
-    if(sessionStorage.length != 0) {
-        $scope.user.name = sessionStorage.getItem('currentUserName');
-    }
-
     $scope.user = Authentification.returnCurrentUser();
 }]);
