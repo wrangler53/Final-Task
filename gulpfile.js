@@ -2,13 +2,14 @@ var gulp = require('gulp');
 var autoprefix = require('gulp-autoprefixer');
 var concatcss = require('gulp-concat-css');
 var mincss = require('gulp-cssmin');
+var useref = require('gulp-useref');
 var concatjs = require('gulp-concat');
 var minjs = require('gulp-uglify');
+var babel = require('gulp-babel');
 var gutil = require('gulp-util');
 var jshint = require('gulp-jshint');
 var rename = require('gulp-rename');
 var minimages = require('gulp-imagemin');
-var useref = require('gulp-useref');
 
 /* Make JS */
 gulp.task('make-js', function() {
@@ -16,6 +17,8 @@ gulp.task('make-js', function() {
     // Check for mistakes in code rules
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
+    // Support es2015 symbols ('`' especially)
+    .pipe(babel({ presets: ['es2015'] }))
     // Concat all js in a single file
     .pipe(concatjs('app.js'))
     // Minify js
@@ -26,31 +29,20 @@ gulp.task('make-js', function() {
     .pipe(rename({suffix: '.min'}))
     // Get final file
     .pipe(gulp.dest('build/js'));
-})
-
-//TEMP
-gulp.task('check-err', function() {
-    return gulp.src(['components/*', 'controllers/*', 'directives/*', 'services/*', 'app-module.js'])
-    // Check for mistakes
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'))
-    .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-})
-
+});
 
 /* Make index.html */
 gulp.task('index', function() {
     return gulp.src('index.html')
-    .pipe(useref())
-    gulp.dest('build');
-})
+    .pipe(useref({noAssets: true}))
+    .pipe(gulp.dest('build'));
+});
 
 /* Put views into build */
 gulp.task('views', function() {
     return gulp.src('views/*')
     .pipe(gulp.dest('build/views'));
-})
-
+});
 
 /* Make CSS */
 gulp.task('compile-css', function() {
@@ -71,7 +63,7 @@ gulp.task('compile-css', function() {
 gulp.task('fonts', function() {
     return gulp.src('fonts/*')
     .pipe(gulp.dest('build/fonts'));
-})
+});
 
 /* Minify images */
 gulp.task('image-min', function() {
@@ -80,4 +72,16 @@ gulp.task('image-min', function() {
     .pipe(minimages())
     // Get minified images
     .pipe(gulp.dest('build/images'));
-})
+});
+
+// Check for mistakes only
+gulp.task('check-err', function() {
+    return gulp.src(['components/*', 'controllers/*', 'directives/*', 'services/*', 'app-module.js'])
+    // Check for mistakes
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+});
+
+/* Build production project */
+gulp.task('build', ['make-js', 'compile-css', 'index', 'views', 'fonts', 'image-min']);

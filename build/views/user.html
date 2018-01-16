@@ -1,0 +1,30 @@
+<div id="user-page" class="container">
+    <div class="content">
+        <div class="content-header">
+            <div class="user-photo">
+                <img src="./test_photos/6.jpg">
+            </div>
+            <div class="user-name">{{userName}}</div>
+        </div>
+        <div class="content-main">
+            <div class="cabinet-item photo-item" ng-if="userPhotos" ng-repeat="photo in userPhotos" ng-mouseleave="hideOnLeave(this)">
+                <img ng-src="{{photo.imageUrl}}" alt="{{photo.imageName}}" class="cabinet-photo">
+                
+                <div class="item-hover" ng-click="goToImagePage(photo)"></div>
+
+                <div class="share icon-block" ng-click="toggleShareBlock(this)">
+                    <img src="./images/share.svg" class="share-icon">
+                </div>
+                
+                <div class="sharing-block" ng-show="isShareBlockActive">
+                    <img src="./images/fb.svg" ng-click="shareFB(photo)">
+                </div>
+        
+                <div class="likes icon-block">
+                    <img src="./images/like-active.svg" class="like-icon">
+                    <span class="likes-num">1234</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

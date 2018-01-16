@@ -1,6 +1,5 @@
 appModule.controller('registrationCtrl', ['$scope', '$state', function($scope, $state) {
-    $scope.registration = 'I`m registration view';
-
+    
     // Register user
     $scope.addUser = function(newUser) {
         firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password).then(function(success) {

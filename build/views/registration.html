@@ -1,0 +1,36 @@
+<div id="registration" class="container">
+    <div class="form-container">
+        <h1>Sign up</h1>
+        <form name="regForm" ng-submit="addUser(newUser)" novalidate>
+
+            <div class="input-wrapper">
+                <input type="text" name="nickname" id="nickname" class="input" placeholder="Nickname" ng-model="newUser.nickname" ng-minlength="3" required>
+                <span ng-if="regForm.nickname.$dirty && regForm.nickname.$error.required" class="error-msg">Enter your Nickname</span>
+                <span ng-if="regForm.nickname.$dirty && regForm.nickname.$error.minlength" class="error-msg">Nickname must have more than 2 characters</span>
+                <!-- TODO: pattern на символи нікнейма -->
+            </div>
+
+            <div class="input-wrapper">
+                <input type="text" name="email" id="email" class="input" placeholder="Email" ng-model="newUser.email" ng-pattern="emailRegexp" required>
+                <span ng-if="regForm.email.$dirty && regForm.email.$error.required" class="error-msg">Enter your Email</span>
+                <span ng-if="regForm.email.$dirty && regForm.email.$error.pattern" class="error-msg">Uncorrect data format</span>
+            </div>
+
+            <div class="input-wrapper">
+                <input type="password" name="password" id="password" class="input" placeholder="Password" ng-model="newUser.password" ng-change="createRetypePassRegexp()" ng-minlength="8" required>
+                <span ng-if="regForm.password.$dirty && regForm.password.$error.required" class="error-msg">Enter your Password</span>
+                <span ng-if="regForm.password.$dirty && regForm.password.$error.minlength" class="error-msg">Password must have more than 8 characters</span>
+            </div>
+
+            <div class="input-wrapper">
+                <input type="password" name="retypePassword" id="retype-password" class="input" placeholder="Retype Password" ng-model="newUser.retypePassword" ng-pattern="retypePassRegexp" required>
+                <span ng-if="regForm.retypePassword.$dirty && regForm.retypePassword.$error.required" class="error-msg">Retype your password</span>
+                <span ng-if="regForm.retypePassword.$dirty && regForm.retypePassword.$error.pattern" class="error-msg">Passwords doesn`t match</span>
+            </div>
+
+            <input type="submit" value="GO" class="btn-submit" ng-disabled="regForm.$invalid">
+        </form>
+        
+        <h3>Already has an acount? <a ui-sref="authorization">Log in</a></h3>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div id="gallery">
+    <div class="gallery-item photo-item" ng-repeat="photo in photos" ng-mouseleave="hideOnLeave(this)">
+        <img ng-src="{{photo.url}}" alt="{{photo.name}}" class="gallery-photo">
+        
+        <div class="item-hover"></div>
+        
+        <div class="share icon-block" ng-click="toggleShareBlock(this)">
+            <img src="./images/share.svg" class="share-icon">
+        </div>
+        
+        <div class="sharing-block" ng-show="isShareBlockActive">
+            <img src="./images/fb.svg" ng-click="shareFB(photo)">
+        </div>
+
+        <div class="likes icon-block">
+            <input type="checkbox" id="like-checkbox">
+            <label for="like-checkbox">
+                <img src="./images/like.svg" class="like-icon">
+                <span class="likes-num">1234</span>
+            </label>            
+        </div>
+    </div>
+</div>

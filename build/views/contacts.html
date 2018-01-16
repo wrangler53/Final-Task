@@ -1,0 +1,25 @@
+<div id="contacts" class="container">
+    <div class="content">
+        <div id="map" class="content-block"></div>
+        <div id="contact-us" class="content-block">
+            <div class="form-container">
+                <h1>Get in touch</h1>
+                <div id="email">
+                    <span>Email:</span><br>
+                    <span><a href="mailto:melnichukjarik@gmail.com">melnichukjarik@gmail.com</a></span>
+                </div>
+                <div id="phone">
+                    <span>Phone:</span><br>
+                    <span>+380930094061</span> 
+                </div>
+                <form name="complaintForm" ng-submit="sendComplaint(complaint)" novalidate>
+                    <input type="text" name="name" id="name" placeholder="Name" ng-model="complaint.name" required>
+                    <input type="text" name="email" id="email" placeholder="Email" ng-model="complaint.email" required>
+                    <input type="text" name="subject" id="subject" placeholder="Subject" ng-model="complaint.subject" required>
+                    <textarea name="message" placeholder="Message" ng-model="complaint.messageText" required></textarea>
+                    <input type="submit" value="Send" class="btn-submit btn-send" ng-disabled="complaintForm.$invalid">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
