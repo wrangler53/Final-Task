@@ -10,7 +10,7 @@ appModule.controller('contactsCtrl', ['$scope', 'Map', function ($scope, Map) {
             userEmail: complaint.email,
             subject: complaint.subject,
             message: complaint.messageText
-        }
+        };
 
         complaintsRef.push(complaintObj).then(function(success){
             complaintForm.reset();
@@ -18,5 +18,5 @@ appModule.controller('contactsCtrl', ['$scope', 'Map', function ($scope, Map) {
         }).catch(function(error) {
             console.log(error);
         });
-    }
+    };
 }]);

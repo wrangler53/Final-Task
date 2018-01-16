@@ -15,5 +15,5 @@ appModule.service('Map', function() {
             position: center,
             map: map
         });
-    }
-})
+    };
+});

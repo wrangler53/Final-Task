@@ -1,6 +1,6 @@
 appModule.service('Authentification', function($state) {
     // Initialize user`s object
-    this.currentUser = {}
+    this.currentUser = {};
     this.authUser = function(user) {
         function writeData(success) {
             //Get current user
@@ -31,11 +31,12 @@ appModule.service('Authentification', function($state) {
                 return alert(errorMessage);
             }         
         });
+    };
 
-    }
     this.returnCurrentUser = function() {
         return this.currentUser;
-    }
+    };
+
     //Logout
     this.logout = function() {
         var self = this;
@@ -46,11 +47,10 @@ appModule.service('Authentification', function($state) {
                 self.currentUser.name = '';
                 alert('Sign out succsess');
                 $state.go('home');
-
-            };
+            }
             return goHome();
         }).catch(function(error) {
             return console.log(error);
         });
-    }
-})
+    };
+});

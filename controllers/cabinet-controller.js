@@ -22,40 +22,40 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
         }).catch(function(error) {
             console.log(error);
         });
-    }
+    };
 
     // Go to image page
     $scope.goToImagePage = function(photo) {
         $location.path('image/' + userId + '/' + photo.id);
-    }
+    };
 
     //show Upload photo modal
     $scope.showUploadPhotoModal = function() {
         $scope.uploadPhotoModal = true;
-    }
+    };
 
     //show Add avatar modal
     $scope.showAddAvatarModal = function() {
         $scope.addAvatarModal = true;
-    }
+    };
 
     //Show/Hide share block
     $scope.toggleShareBlock = function(element) {
         element.isShareBlockActive = !element.isShareBlockActive;
-    }
+    };
 
     $scope.hideOnLeave = function(element) {
         element.isShareBlockActive = false;
-    }
+    };
 
     // FB sharing
     $scope.shareFB = function(photo) {
         Sharing.shareInFB(photo);
-    }
+    };
 
     //Logout
     $scope.logout = function() {
         Authentification.logout();
-    }
+    };
 
 }]);

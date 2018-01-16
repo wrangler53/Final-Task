@@ -11,7 +11,7 @@ appModule.controller('galleryCtrl', ['$scope', '$http', 'Sharing', 'Authentifica
             for(var key1 in imagesObj) {
                 $scope.imagesArr.push(imagesObj[key1]);
             }
-        };
+        }
     });
 
     console.log($scope.imagesArr);
@@ -19,15 +19,15 @@ appModule.controller('galleryCtrl', ['$scope', '$http', 'Sharing', 'Authentifica
     //Show/Hide share block
     $scope.toggleShareBlock = function(element) {
         element.isShareBlockActive = !element.isShareBlockActive;
-    }
+    };
 
     $scope.hideOnLeave = function(element) {
         element.isShareBlockActive = false;
-    }
+    };
 
     // Share photo in Facebook
     $scope.shareFB = function(photo) {
         Sharing.shareInFB(photo);
-    }
+    };
 
 }]);

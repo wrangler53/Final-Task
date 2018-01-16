@@ -4,7 +4,7 @@ appModule.service('uploadPhotoService', function() {
     this.recievePhoto = function(currentPhoto) {
        photo = currentPhoto;
        console.log(photo);
-    }
+    };
 
     this.uploadPhotoToFirebase = function(tagsArr) {
         // get photo name, userId, userName, imageRef in Firebase
@@ -26,7 +26,7 @@ appModule.service('uploadPhotoService', function() {
                     ownerName: userName,
                     ownerId: userId
                 }
-            }
+            };
             
             writePhotoToDB(imageData);
         }).catch(function(error) {
@@ -46,7 +46,7 @@ appModule.service('uploadPhotoService', function() {
                 setImageId(succsess.key);
             }).catch(function(error){
                 console.log(error);
-            })
+            });
         }
 
         // Set id for image (the same as branch id)
@@ -57,7 +57,7 @@ appModule.service('uploadPhotoService', function() {
                 console.log('Id set successfully');
             }).catch(function(error) {
                 console.log(error);
-            }) 
+            });
         } 
-    }
-})
+    };
+});

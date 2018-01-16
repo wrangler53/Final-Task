@@ -41,12 +41,12 @@ appModule.component('uploadPhotoModal', {
     controller: function(uploadPhotoService) {
         this.closeModal = function() {
             this.show = false;
-        }
+        };
         // Tag`s array
         this.tags = [];
         // Upload photo to Firebase
         this.uploadPhoto = function() {
             uploadPhotoService.uploadPhotoToFirebase(this.tags);
-        }
+        };
     }
 });

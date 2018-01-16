@@ -1,5 +1,4 @@
 appModule.controller('rootController', ['$scope', 'Authentification', function($scope, Authentification) {
-    $scope.index = 'I`m index page'
 
     //RegExps
     $scope.emailRegexp = /^[-\w\+\.]+@(\w+\.)+\w+$/;
@@ -9,7 +8,7 @@ appModule.controller('rootController', ['$scope', 'Authentification', function($
         $scope.isBurgerActive = !$scope.isBurgerActive;
         console.log($scope.isBurgerActive);
         event.stopPropagation();
-    }
+    };
 
     $scope.user = {};
 

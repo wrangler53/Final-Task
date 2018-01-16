@@ -32,19 +32,19 @@ appModule.controller('registrationCtrl', ['$scope', '$state', function($scope, $
                 alert(errorMessage);
             }      
         });   
-    }
+    };
 
     //Create retype password regexp
     $scope.createRetypePassRegexp = function() {
         $scope.retypePassRegexp = new RegExp('^' + $scope.newUser.password + '$');
-    }
+    };
 
     //write user to database
     function addUserToDB(uId, userName) {
         var usersRef = firebase.database().ref().child('Users');
         var userObj = {
             userName: userName
-        }        
+        };      
 
         usersRef.child(uId).set(userObj).then(function(success){
             console.log('Child added good');

@@ -18,7 +18,7 @@ appModule.directive('photoUpload', ['uploadPhotoService', function(uploadPhotoSe
                     scope.$apply(function(scope) {
                         scope.files = element.files;
                     });
-                }
+                };
                 
                 reader.readAsDataURL(currentPhoto);
 
@@ -26,5 +26,5 @@ appModule.directive('photoUpload', ['uploadPhotoService', function(uploadPhotoSe
 
             }
         }
-    }
-}])
+    };
+}]);

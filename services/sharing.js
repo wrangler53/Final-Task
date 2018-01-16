@@ -6,5 +6,5 @@ appModule.service('Sharing', function(){
         }, function(response){
             return console.log(response);
         });
-    }    
-})
+    }; 
+});

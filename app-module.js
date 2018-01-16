@@ -56,7 +56,8 @@ appModule.config(['$stateProvider', '$urlRouterProvider', function ($stateProvid
             url: '/about',
             templateUrl: 'views/about.html',
             controller: 'aboutCtrl'
-        })
+        });
+        //In other cases
         $urlRouterProvider.otherwise('/home');
 
 }]);

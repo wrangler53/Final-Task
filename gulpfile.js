@@ -33,6 +33,7 @@ gulp.task('check-err', function() {
     return gulp.src(['components/*', 'controllers/*', 'directives/*', 'services/*', 'app-module.js'])
     // Check for mistakes
     .pipe(jshint())
+    .pipe(jshint.reporter('default'))
     .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
 })
 

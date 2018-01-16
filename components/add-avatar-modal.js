@@ -27,6 +27,6 @@ appModule.component('addAvatarModal', {
     controller: function() {
         this.closeModal = function() {
             this.show = false;
-        }
+        };
     }
-})
+});

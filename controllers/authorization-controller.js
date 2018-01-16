@@ -3,6 +3,6 @@ appModule.controller('authorizationCtrl', ['$scope', '$state', 'Authentification
     // Login user
     $scope.authUser = function(user) {
         Authentification.authUser(user);
-    }
+    };
 
 }]);

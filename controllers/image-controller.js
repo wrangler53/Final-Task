@@ -14,16 +14,16 @@ appModule.controller('imageCtrl', ['$scope', '$stateParams', '$location', 'Shari
     $scope.goToUserPage = function(userId) {
         console.log(userId);
         $location.path('user/' + userId);
-    }
+    };
 
     //Show/Hide share block
     $scope.toggleShareBlock = function() {
         $scope.isShareBlockActive = !$scope.isShareBlockActive;
-    }
+    };
 
     // FB sharing
     $scope.shareFB = function(photo) {
         Sharing.shareInFB(photo);
-    }
+    };
     
 }]);
