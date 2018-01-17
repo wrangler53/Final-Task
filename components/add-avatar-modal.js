@@ -14,8 +14,7 @@ appModule.component('addAvatarModal', {
                     <div class="image-preview">
                         <input photo-upload type="file" accept="image/*" name="newPhoto" class="upload-photo" id="upload-new-photo">
                         <label for="upload-new-photo" class="photo-item">
-                            <img ng-if="!image" src="./images/add-image.svg">
-                            <img ng-src="{{image}}" ng-class="{'cabinet-photo': image}">
+                            <img-crop image="image" area-type="square" result-image="$ctrl.myAvatar"></img-crop>
                         </label>
                     </div>                    
                 </div>
@@ -24,9 +23,13 @@ appModule.component('addAvatarModal', {
                 </div>
             </div>
         </div>`,
-    controller: function() {
+    controller: function(uploadPhotoService) {
         this.closeModal = function() {
             this.show = false;
+        };
+        this.myAvatar = '';
+        this.uploadPhoto = function() {
+            uploadPhotoService.setAvatar(this.myAvatar);
         };
     }
 });

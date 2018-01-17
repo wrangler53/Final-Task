@@ -14,9 +14,8 @@ appModule.directive('photoUpload', ['uploadPhotoService', function(uploadPhotoSe
 
                 //show image
                 reader.onload = function(event) {
-                    scope.image = event.target.result;
                     scope.$apply(function(scope) {
-                        scope.files = element.files;
+                        scope.image = event.target.result;
                     });
                 };
                 
