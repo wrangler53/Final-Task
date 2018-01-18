@@ -21,6 +21,12 @@ appModule.config(['$stateProvider', '$urlRouterProvider', function ($stateProvid
             templateUrl: 'views/image.html',
             controller: 'imageCtrl'
         })
+        //Search page
+        .state('search', {
+            url:'/search/{searchPtrn}',
+            templateUrl: 'views/search.html',
+            controller: 'searchCtrl'
+        })
         //User`s page
         .state('user', {
             url: '/user/{userId}',

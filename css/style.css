@@ -130,8 +130,13 @@ nav li a:hover {
     color: #4595F7;
 }
 
-/*Search input*/
+/*Search block*/
 #search {
+    position: relative;
+    float: left;
+}
+
+#search input {
     width: 100px;
     border-radius: 20px;
     padding: 10px;
@@ -143,13 +148,29 @@ nav li a:hover {
     color: #5E5D5D;
 }
 
-#search::placeholder {
+#search input::placeholder {
     color: #5E5D5D;
     font-family: 'Raleway', sans-serif;
 }
 
-#search:focus {
+#search input:focus {
     width: 500px;
+}
+
+#search img {
+    position: absolute;
+    width: 20px;
+    top: 8px;
+    right: 12px;
+}
+
+#search img:hover {
+    cursor: pointer;
+}
+
+/* Controls block */
+.controls  {
+    line-height: 38px;
 }
 
 /*Login*/
@@ -352,8 +373,8 @@ img.like-icon {
         width: 100%;
     }
 
-    #search,
-    #search:focus {
+    #search input,
+    #search input:focus {
         width: 120px;
     }
 

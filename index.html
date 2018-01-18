@@ -69,6 +69,7 @@
         <script src="./controllers/about-controller.js"></script>
         <script src="./controllers/contacts-controller.js"></script>
         <script src="./controllers/image-controller.js"></script>
+        <script src="./controllers/search-controller.js"></script>
         <script src="./controllers/user-controller.js"></script>
         <!-- endbuild -->
 
@@ -100,7 +101,10 @@
                     </ul>
                 </nav>
                 <div class="controls">
-                    <input type="text" id="search" placeholder="Search...">
+                    <div id="search">
+                        <input type="text" name="searchInput" ng-model="searchTags" placeholder="Search...">
+                        <img src="../images/search.svg" alt="" ng-click="findImages()">
+                    </div>
                     <a ng-if="user.name" class="login" ui-sref="cabinet">{{user.name}}</a>
                     <a ng-if="!user.name" class="login" ui-sref="authorization">Log In</a>
                 </div>

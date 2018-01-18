@@ -1,5 +1,7 @@
 appModule.service('FindImgService', function () {
-    this.findImages = function () {
+
+    this.findImages = function (searchPtrn) {
+        
         // Filtering images 
         function search() {
 
@@ -19,15 +21,10 @@ appModule.service('FindImgService', function () {
 
                 for (var key in allUsers) {
                     for (img in allUsers[key].images) {
-                        if (allUsers[key].images[img].tags.some(img => img == 'Jul')) {
+                        if (allUsers[key].images[img].tags.some(img => img == searchPtrn)) {
                             filteredImgArr.push(allUsers[key].images[img]);
                         }
                     }
-                }
-
-                // get tag to find from search field
-                function getSearchPattern() {
-                    return 'Jul';
                 }
 
                 return console.log(filteredImgArr);

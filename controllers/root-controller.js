@@ -1,4 +1,4 @@
-appModule.controller('rootController', ['$scope', 'Authentification', 'FindImgService', function($scope, Authentification, FindImgService) {
+appModule.controller('rootController', ['$scope', '$location', 'Authentification', 'FindImgService', function($scope, $location, Authentification, FindImgService) {
 
     //RegExps
     $scope.emailRegexp = /^[-\w\+\.]+@(\w+\.)+\w+$/;
@@ -21,7 +21,9 @@ appModule.controller('rootController', ['$scope', 'Authentification', 'FindImgSe
 
     // Image search
     $scope.findImages = function() {
-        FindImgService.findImages();
+        var searchTags = encodeURI($scope.searchTags);
+        $location.path('/search/' + searchTags);
+        $scope.searchTags = '';
     }
 
 }]);
