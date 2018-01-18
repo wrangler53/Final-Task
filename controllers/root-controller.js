@@ -1,4 +1,4 @@
-appModule.controller('rootController', ['$scope', 'Authentification', function($scope, Authentification) {
+appModule.controller('rootController', ['$scope', 'Authentification', 'FindImgService', function($scope, Authentification, FindImgService) {
 
     //RegExps
     $scope.emailRegexp = /^[-\w\+\.]+@(\w+\.)+\w+$/;
@@ -12,10 +12,16 @@ appModule.controller('rootController', ['$scope', 'Authentification', function($
 
     $scope.user = {};
 
-    // if(sessionStorage.length != 0) {
-    //     $scope.currentUserName = sessionStorage.getItem('currentUserName');
-    //     $scope.currentUserId = sessionStorage.getItem('currentUserId');
-    // }
+    if(sessionStorage.length != 0) {
+        $scope.user.name = sessionStorage.getItem('currentUserName');
+        $scope.user.id = sessionStorage.getItem('currentUserId');
+    } else {
+        $scope.user = Authentification.returnCurrentUser();
+    }
 
-    $scope.user = Authentification.returnCurrentUser();
+    // Image search
+    $scope.findImages = function() {
+        FindImgService.findImages();
+    }
+
 }]);

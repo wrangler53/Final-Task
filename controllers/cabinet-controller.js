@@ -6,11 +6,12 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
         var userImagesRef = firebase.database().ref().child('Users').child(userId).child('images');
     }
 
+    
     userImagesRef.on('value', function(success) {
         $scope.userPhotos = Object.values(success.val());
-        console.log($scope.userPhotos);
+        //console.log($scope.userPhotos);
     });
-
+    
     //Delete image
     $scope.deleteImage = function(photo) {
         // Delete from DB

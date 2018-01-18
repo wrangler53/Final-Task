@@ -1,7 +1,5 @@
 appModule.service('uploadPhotoService', function() {
     var photo; 
-    var userId = sessionStorage.getItem('currentUserId');
-    var userName = sessionStorage.getItem('currentUserName');
 
     this.recievePhoto = function(currentPhoto) {
        photo = currentPhoto;
@@ -11,6 +9,8 @@ appModule.service('uploadPhotoService', function() {
     this.uploadPhotoToFirebase = function(tagsArr) {
         // get photo name, imageRef in Firebase
         var photoName = photo.name;
+        var userId = sessionStorage.getItem('currentUserId');
+        var userName = sessionStorage.getItem('currentUserName');
         var imagesRef = firebase.storage().ref('images/' + userId + '/' + photoName);
 
         // Upload photo to Firebase Storage
