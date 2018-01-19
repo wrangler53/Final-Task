@@ -47,6 +47,7 @@ appModule.controller('registrationCtrl', ['$scope', '$state', function($scope, $
 
         usersRef.child(uId).set(userObj).then(function(success){
             console.log('Child added good');
+            regForm.reset();
         }).catch(function(error) {
             console.log(error);
         });

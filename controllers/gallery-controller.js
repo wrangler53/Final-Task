@@ -1,7 +1,7 @@
 appModule.controller('galleryCtrl', ['$scope', '$http', 'Sharing', 'Authentification', function($scope, $http, Sharing, Authentification) {
     
     var images = firebase.database().ref().child('Users');
-    $scope.imagesArr = [];
+    $scope.allImagesArr = [];
 
     // Get all images
     images.once('value', function(success) {
@@ -9,12 +9,14 @@ appModule.controller('galleryCtrl', ['$scope', '$http', 'Sharing', 'Authentifica
         for(var key in user) {
             var imagesObj = user[key].images;
             for(var key1 in imagesObj) {
-                $scope.imagesArr.push(imagesObj[key1]);
+                $scope.allImagesArr.push(imagesObj[key1]);
             }
         }
     });
 
-    console.log($scope.imagesArr);
+    setTimeout(function() {
+        console.log($scope.allImagesArr);
+    }, 2000)
 
     //Show/Hide share block
     $scope.toggleShareBlock = function(element) {

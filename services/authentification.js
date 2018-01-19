@@ -10,7 +10,8 @@ appModule.service('Authentification', function($state) {
             // Write current user data in Session Storage
             sessionStorage.setItem('currentUserName', this.currentUser.name);
             sessionStorage.setItem('currentUserId', this.currentUser.id);
-
+            
+            authForm.reset();
             alert('Authentification successed. Now - cabinet');
             $state.go('cabinet');            
         }

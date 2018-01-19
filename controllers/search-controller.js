@@ -2,5 +2,10 @@ appModule.controller('searchCtrl', ['$scope', '$stateParams', 'FindImgService', 
     
     var searchTags = decodeURI($stateParams.searchPtrn);
     
-    FindImgService.findImages(searchTags);
+    $scope.searchedImages = FindImgService.findImages(searchTags);
+
+    setTimeout(function() {
+        console.log($scope.searchedImages);
+    },2000)
+
 }])

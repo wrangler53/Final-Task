@@ -1,6 +1,6 @@
 <div id="gallery">
-    <div class="gallery-item photo-item" ng-repeat="photo in photos" ng-mouseleave="hideOnLeave(this)">
-        <img ng-src="{{photo.url}}" alt="{{photo.name}}" class="gallery-photo">
+    <div class="gallery-item photo-item" ng-repeat="photo in allImagesArr" ng-mouseleave="hideOnLeave(this)">
+        <img ng-src="{{photo.imageUrl}}" alt="{{photo.imageName}}" class="gallery-photo">
         
         <div class="item-hover"></div>
         
