@@ -5,4 +5,9 @@ appModule.controller('authorizationCtrl', ['$scope', '$state', 'Authentification
         Authentification.authUser(user);
     };
 
+    $scope.ifToastToShow = function() {
+        $scope.ifToastShow = !$scope.ifToastShow;
+        console.log($scope.ifToastShow);
+    }
+
 }]);

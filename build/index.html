@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <!-- AngularJS, ui-router, chips, image cropper-->
+        <!-- AngularJS, ui-router, chips, image cropper, carousel -->
         <script src="./node_modules/angular/angular.min.js"></script>
         <script src="./node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
         <script src="./node_modules/angular-chips/dist/angular-chips.min.js"></script>
         <script src="./node_modules/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+        <script src="./node_modules/angular-ui-carousel/dist/ui-carousel.min.js"></script>
 
         <!-- Google Maps -->        
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAziS9OFqaLQqUpI2yGfElRBCucSkewzfE"></script>        
@@ -55,6 +56,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="css/style.min.css">
         <link rel="stylesheet" href="./node_modules/ng-img-crop/compile/minified/ng-img-crop.css">
+        <link rel="stylesheet" href="./node_modules/angular-ui-carousel/dist/ui-carousel.min.css">
     </head>
 
     <body ng-controller="rootController">
@@ -78,7 +80,10 @@
                     </ul>
                 </nav>
                 <div class="controls">
-                    <input type="text" id="search" placeholder="Search...">
+                    <div id="search">
+                        <input type="text" name="searchInput" ng-model="searchTags" placeholder="Search...">
+                        <img src="../images/search.svg" alt="" ng-click="findImages()">
+                    </div>
                     <a ng-if="user.name" class="login" ui-sref="cabinet">{{user.name}}</a>
                     <a ng-if="!user.name" class="login" ui-sref="authorization">Log In</a>
                 </div>
