@@ -1,0 +1,31 @@
+<div class="container" id="search-page">
+    <div class="content">
+        <div id="found-images" ng-repeat="image in searchedImages">
+            <div class="image-container">
+                <img ng-src="{{image.imageUrl}}" alt="image.imageName">
+                <div class="image-tags">
+                    <div class="default-chip" ng-repeat="tag in image.tags">
+                        {{tag}}
+                    </div>
+                </div>
+            </div>
+            <div class="image-info">
+                <div class="user-photo" ng-click="goToUserPage(image.owner.ownerId)">
+                    <img src="./test_photos/6.jpg">
+                </div>
+
+                <div class="user-name" ng-click="goToUserPage(image.owner.ownerId)">{{image.owner.ownerName}}</div>
+
+                <div class="share icon-block">
+                    <img src="./images/share-grey.svg" class="share-icon" ng-click="toggleShareBlock()">
+                    <img src="./images/fb-grey.svg" class="share-fb" ng-class="{'show-share-fb': isShareBlockActive}" ng-click="shareFB(image)">
+                </div>
+
+                <div class="likes icon-block">
+                    <img src="./images/like-active.svg" class="like-icon">
+                    <span class="likes-num">1234</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

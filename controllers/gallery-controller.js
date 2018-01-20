@@ -1,4 +1,4 @@
-appModule.controller('galleryCtrl', ['$scope', '$http', 'Sharing', 'Authentification', function($scope, $http, Sharing, Authentification) {
+appModule.controller('galleryCtrl', ['$scope', '$location', 'Sharing', 'Authentification', function($scope, $location, Sharing, Authentification) {
     
     var images = firebase.database().ref().child('Users');
     $scope.allImagesArr = [];
@@ -13,10 +13,11 @@ appModule.controller('galleryCtrl', ['$scope', '$http', 'Sharing', 'Authentifica
             }
         }
     });
-
-    setTimeout(function() {
-        console.log($scope.allImagesArr);
-    }, 2000)
+    
+    // Go to image page
+    $scope.goToImagePage = function(photo) {
+        $location.path('image/' + photo.owner.ownerId + '/' + photo.id);
+    };
 
     //Show/Hide share block
     $scope.toggleShareBlock = function(element) {

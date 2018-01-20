@@ -13,9 +13,6 @@ appModule.service('FindImgService', function () {
             filterImages(allUsers);
         });
 
-
-        //var filteredImgArr = [];
-
         // get images by tags
         function filterImages(allUsers) {
             for (var key in allUsers) {
