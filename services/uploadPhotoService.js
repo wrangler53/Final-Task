@@ -13,6 +13,8 @@ appModule.service('uploadPhotoService', function() {
         var userName = sessionStorage.getItem('currentUserName');
         var imagesRef = firebase.storage().ref('images/' + userId + '/' + photoName);
 
+        var likesArr = ['Test'];
+
         // Upload photo to Firebase Storage
         imagesRef.put(photo).then(function(succsess) {
             console.log('Uploaded succsesfully');
@@ -25,7 +27,8 @@ appModule.service('uploadPhotoService', function() {
                 owner: {
                     ownerName: userName,
                     ownerId: userId
-                }
+                },
+                likes: likesArr
             };
             
             writePhotoToDB(imageData);

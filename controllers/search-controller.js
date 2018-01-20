@@ -2,7 +2,16 @@ appModule.controller('searchCtrl', ['$scope', '$stateParams', '$location', 'Find
     
     var searchTags = decodeURI($stateParams.searchPtrn);
     
-    $scope.searchedImages = FindImgService.findImages(searchTags);
+    //$scope.searchedImages = FindImgService.findImages(searchTags);
+
+    FindImgService.findImages(searchTags).then(function(data) {
+       
+        $scope.searchedImages = data;
+        console.log($scope.searchedImages);
+        if(!$scope.$$phase) {
+            $scope.$digest();
+        }
+    })
 
     //Go to user`s page 
     $scope.goToUserPage = function(userId) {

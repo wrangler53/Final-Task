@@ -1,5 +1,5 @@
 appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentification', 'Sharing', function($scope, $state, $location, Authentification, Sharing) {
-
+    
     // Get user`s images
     if(sessionStorage.length != 0) {
         var userId = sessionStorage.getItem('currentUserId');
@@ -9,7 +9,7 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
     
     userImagesRef.on('value', function(success) {
         $scope.userPhotos = Object.values(success.val());
-        //console.log($scope.userPhotos);
+        $scope.$digest();
     });
     
     //Delete image
@@ -31,6 +31,11 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
     };
 
     //show Upload photo modal
+    $scope.hideModal = function() {
+        console.log('Hide ctrl');
+        $scope.uploadPhotoModal = false;
+    }
+
     $scope.showUploadPhotoModal = function() {
         $scope.uploadPhotoModal = true;
     };

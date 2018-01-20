@@ -14,12 +14,12 @@ appModule.component('addAvatarModal', {
                     <div class="image-preview">
                         <input photo-upload type="file" accept="image/*" name="newPhoto" class="upload-photo" id="upload-new-photo">
                         <label for="upload-new-photo" class="photo-item">
-                            <img-crop image="image" area-type="square" result-image="$ctrl.myAvatar"></img-crop>
+                            <img-crop image="$ctrl.image" area-type="square" result-image="$ctrl.myAvatar"></img-crop>
                         </label>
                     </div>                    
                 </div>
                 <div class="modal-controls">
-                    <input type="submit" value="Set avatar" class="btn-submit" ng-click="$ctrl.uploadPhoto()">
+                    <input type="submit" value="Set avatar" class="btn-submit" ng-click="$ctrl.uploadPhoto(); $ctrl.closeModal()">
                 </div>
             </div>
         </div>`,

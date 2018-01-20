@@ -1,14 +1,14 @@
 appModule.component('uploadPhotoModal', {
     bindings: {
-        show: '=',
         heading: '@',
+        hide: '&'
     },
     template:     
-        `<div class="modal-bg" id="modal-upload-photo" ng-show="$ctrl.show" ng-click="$ctrl.closeModal()"> 
+        `<div class="modal-bg" id="modal-upload-photo" ng-click="$ctrl.hide()"> 
             <div class="modal-content" ng-click="$event.stopPropagation()">
                 <div class="modal-header"> 
                     {{ $ctrl.heading }} 
-                    <div class="close-modal" ng-click="$ctrl.closeModal()"></div>
+                    <div class="close-modal" ng-click="$ctrl.hide()"></div>
                 </div>
                 <div class="modal-body">
                     <div class="image-preview">
@@ -34,16 +34,15 @@ appModule.component('uploadPhotoModal', {
                     </div>
                 </div>
                 <div class="modal-controls">
-                    <input type="submit" value="Upload" class="btn-submit" ng-click="$ctrl.uploadPhoto()">
+                    <input type="submit" value="Upload" class="btn-submit" ng-click="$ctrl.uploadPhoto(); $ctrl.hide()">
                 </div>
             </div>
         </div>`,
     controller: function(uploadPhotoService) {
-        this.closeModal = function() {
-            this.show = false;
-        };
-        // Tag`s array
-        this.tags = [];
+        this.$onInit = function() {
+            // Tag`s array
+            this.tags = [];
+        }
         // Upload photo to Firebase
         this.uploadPhoto = function() {
             uploadPhotoService.uploadPhotoToFirebase(this.tags);

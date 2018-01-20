@@ -42,14 +42,11 @@ appModule.service('Authentification', function($state) {
     this.logout = function() {
         var self = this;
         firebase.auth().signOut().then(function() {
-            function goHome() {
-                sessionStorage.removeItem('currentUserName');
-                sessionStorage.removeItem('currentUserId');
-                self.currentUser.name = '';
-                alert('Sign out succsess');
-                $state.go('home');
-            }
-            return goHome();
+            sessionStorage.removeItem('currentUserName');
+            sessionStorage.removeItem('currentUserId');
+            self.currentUser.name = '';
+            alert('Sign out succsess');
+            $state.go('home');
         }).catch(function(error) {
             return console.log(error);
         });
