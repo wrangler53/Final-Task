@@ -2,6 +2,7 @@
 #gallery {
     height: calc(100vh - 80px);
     overflow-y: scroll;
+    background: #F1F1F1;
 }
 
 #gallery::-webkit-scrollbar {

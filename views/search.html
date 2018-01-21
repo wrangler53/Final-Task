@@ -11,7 +11,8 @@
             </div>
             <div class="image-info">
                 <div class="user-photo" ng-click="goToUserPage(image.owner.ownerId)">
-                    <img src="./test_photos/6.jpg">
+                    <img src="./images/user.svg" ng-if="!image.owner.ownerAvatar">
+                    <img ng-src="{{image.owner.ownerAvatar}}" ng-if="image.owner.ownerAvatar">
                 </div>
 
                 <div class="user-name" ng-click="goToUserPage(image.owner.ownerId)">{{image.owner.ownerName}}</div>
