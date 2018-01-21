@@ -7,13 +7,24 @@ appModule.service('uploadPhotoService', function() {
     };
 
     this.uploadPhotoToFirebase = function(tagsArr) {
+        // Generate unique id for file name
+        function guid() {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                s4() + '-' + s4() + s4() + s4();
+        }
+
         // get photo name, imageRef in Firebase
-        var photoName = photo.name;
+        var photoName = guid();
         var userId = sessionStorage.getItem('currentUserId');
         var userName = sessionStorage.getItem('currentUserName');
         var imagesRef = firebase.storage().ref('images/' + userId + '/' + photoName);
 
-        var likesArr = ['Test'];
+        //var likesArr = ['Test'];
 
         // Upload photo to Firebase Storage
         imagesRef.put(photo).then(function(succsess) {
@@ -27,8 +38,8 @@ appModule.service('uploadPhotoService', function() {
                 owner: {
                     ownerName: userName,
                     ownerId: userId
-                },
-                likes: likesArr
+                }
+                //likes: likesArr
             };
             
             writePhotoToDB(imageData);
@@ -97,6 +108,8 @@ appModule.service('uploadPhotoService', function() {
         }
 
         base64ToBlob(myAvatar);
+
+        var userId = sessionStorage.getItem('currentUserId');
 
         // Get avatars ref in Firebase Storage
         var bigAvatarRef = firebase.storage().ref().child('images/' + userId + '/avatars/' + bigAvatarName);

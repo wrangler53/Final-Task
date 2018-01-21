@@ -13,9 +13,10 @@ appModule.component('addAvatarModal', {
                 <div class="modal-body">
                     <div class="image-preview">
                         <input photo-upload type="file" accept="image/*" name="newPhoto" class="upload-photo" id="upload-new-photo">
-                        <label for="upload-new-photo" class="photo-item">
-                            <img-crop image="image" area-type="square" result-image="$ctrl.myAvatar"></img-crop>
+                        <label for="upload-new-photo" class="photo-item" ng-if="!image">
+                            <img src="./images/add-image.svg">
                         </label>
+                        <img-crop ng-if="image" image="image" area-type="square" result-image="$ctrl.myAvatar" class="photo-item"></img-crop>
                     </div>                    
                 </div>
                 <div class="modal-controls">
