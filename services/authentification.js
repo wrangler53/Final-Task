@@ -11,7 +11,6 @@ appModule.service('Authentification', function($state) {
             sessionStorage.setItem('currentUserName', this.currentUser.name);
             sessionStorage.setItem('currentUserId', this.currentUser.id);
             
-            authForm.reset();
             alert('Authentification successed. Now - cabinet');
             $state.go('cabinet');            
         }

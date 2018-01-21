@@ -1,0 +1,19 @@
+<div id="home" class="container">
+    <div id="photos-slider" ng-carousel ng-carousel-name="photos-carousel" ng-carousel-watch="images" ng-carousel-timer="3500">
+        <slidecontainer> 
+            <slide ng-repeat="image in images">
+                <img ng-src="{{image.imageUrl}}">
+            </slide>
+        </slidecontainer>
+        <div class="carousel-arrow carousel-arrow-left">
+            <div ng-click="Carousel.get('photos-carousel').previous()">
+                <img src="./images/left-arrow.svg">
+            </div>
+        </div>
+        <div class="carousel-arrow carousel-arrow-right">
+            <div ng-click="Carousel.get('photos-carousel').next()">
+                <img src="./images/right-arrow.svg">
+            </div>
+        </div>
+    </div>
+</div>

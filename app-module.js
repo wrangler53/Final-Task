@@ -1,4 +1,4 @@
-var appModule = angular.module('appModule', ['ui.router', 'angular.chips', 'ngImgCrop', 'ui.carousel']);
+var appModule = angular.module('appModule', ['ui.router', 'angular.chips', 'ngImgCrop', 'angular-carousel']);
 
 appModule.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 

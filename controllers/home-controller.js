@@ -1,10 +1,13 @@
-appModule.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
+appModule.controller('homeCtrl', ['$scope', 'Carousel', function ($scope, Carousel) {
+    //init Carousel
+    $scope.Carousel = Carousel;
 
     var users = firebase.database().ref().child('Users');
 
+    $scope.images = [];
+
     // Get all images
     users.once('value').then(function (success) {
-        $scope.images = [];
         var user = success.val();
         for (var key in user) {
             var imagesObj = user[key].images;

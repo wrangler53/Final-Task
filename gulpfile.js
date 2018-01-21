@@ -65,6 +65,12 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest('build/fonts'));
 });
 
+/* Put libs into build */
+gulp.task('libs', function() {
+    return gulp.src('lib/*')
+    .pipe(gulp.dest('build/lib'));
+});
+
 /* Minify images */
 gulp.task('image-min', function() {
     return gulp.src('./images/*')
@@ -84,4 +90,4 @@ gulp.task('check-err', function() {
 });
 
 /* Build production project */
-gulp.task('build', ['make-js', 'compile-css', 'index', 'views', 'fonts', 'image-min']);
+gulp.task('build', ['make-js', 'compile-css', 'index', 'views', 'fonts', 'libs', 'image-min']);
