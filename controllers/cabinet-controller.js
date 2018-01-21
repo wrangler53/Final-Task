@@ -3,6 +3,7 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
     // Get user`s images
     if(sessionStorage.length != 0) {
         var userId = sessionStorage.getItem('currentUserId');
+        var userRef = firebase.database().ref().child('Users').child(userId).child('avatarUrl');
         var userImagesRef = firebase.database().ref().child('Users').child(userId).child('images');
     }
 
@@ -13,6 +14,14 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
             $scope.$digest();
         }
     });
+
+    // Get user`s avatar
+    userRef.on('value', function(success) {
+        $scope.avatar = success.val();
+        if(!$scope.$$phase) {
+            $scope.$digest();
+        }
+    })
     
     //Delete image
     $scope.deleteImage = function(photo) {

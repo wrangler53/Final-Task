@@ -5,12 +5,23 @@ appModule.controller('userCtrl', ['$scope', '$stateParams', 'Sharing', function(
     userRef.child('userName').once('value', function(success) {
         $scope.userName = success.val();
         console.log(success.val());  
+        if(!$scope.$$phase) {
+            $scope.$digest();
+        }
     });
+
+    // Get user`s avatar
+    userRef.child('avatarUrl').once('value', function(success) {
+        $scope.avatar = success.val();
+    })
 
     // Get user images
     userRef.child('images').once('value', function(success) {
         $scope.userPhotos = Object.values(success.val());
         console.log($scope.userPhotos);
+        if(!$scope.$$phase) {
+            $scope.$digest();
+        }
     });
 
     //Show/Hide share block

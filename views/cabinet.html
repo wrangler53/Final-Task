@@ -2,7 +2,8 @@
     <div class="content">
         <div class="content-header">
             <div class="user-photo" ng-click="showAddAvatarModal()">
-                <img src="./images/user.svg">
+                <img src="./images/user.svg" ng-class="{'user-photo-hover': avatar}">
+                <img ng-src="{{avatar}}" ng-if="avatar">
             </div>
             <div class="user-name">{{user.name}}</div>
 

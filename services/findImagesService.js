@@ -1,9 +1,6 @@
 appModule.service('FindImgService', function () {
 
-   // this.filteredImgArr = [];
-
     this.findImages = function (searchPtrn) {
-        // var self = this;
         // Filtering images 
         var allUserRef = firebase.database().ref().child('Users');
 
@@ -26,9 +23,6 @@ appModule.service('FindImgService', function () {
             var allUsers = success.val();
             return filterImages(allUsers);
         });
-
         
-
-        //return self.filteredImgArr;
     }
 });

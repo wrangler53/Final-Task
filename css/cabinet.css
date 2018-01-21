@@ -70,6 +70,14 @@
     object-fit: contain;
 }
 
+.user-photo-hover {
+    display: none;
+}
+
+.user-photo:hover .user-photo-hover {
+    display: block;
+}
+
 /* Style for photo in cabinet */
 .cabinet-item {
     width: 46vh;

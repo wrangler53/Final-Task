@@ -3,7 +3,6 @@ appModule.service('uploadPhotoService', function() {
 
     this.recievePhoto = function(currentPhoto) {
        photo = currentPhoto;
-       console.log(photo);
     };
 
     this.uploadPhotoToFirebase = function(tagsArr) {
@@ -27,13 +26,13 @@ appModule.service('uploadPhotoService', function() {
         //var likesArr = ['Test'];
 
         // Upload photo to Firebase Storage
-        imagesRef.put(photo).then(function(succsess) {
+        imagesRef.put(photo).then(function(success) {
             console.log('Uploaded succsesfully');
 
             //create image data
             var imageData = {
-                imageUrl: succsess.metadata.downloadURLs[0],
-                imageName: succsess.metadata.name,
+                imageUrl: success.metadata.downloadURLs[0],
+                imageName: success.metadata.name,
                 tags: tagsArr,
                 owner: {
                     ownerName: userName,
@@ -53,10 +52,10 @@ appModule.service('uploadPhotoService', function() {
             var userImagesRef = firebase.database().ref().child('Users').child(userId).child('images');
             
             // Image id in DB
-            userImagesRef.push(imageData).then(function(succsess){
+            userImagesRef.push(imageData).then(function(success){
                 console.log('Image added to DB successfully');
                 // Set image id in DB
-                setImageId(succsess.key);
+                setImageId(success.key);
             }).catch(function(error){
                 console.log(error);
             });
@@ -66,7 +65,7 @@ appModule.service('uploadPhotoService', function() {
         function setImageId(imageId) {
             var newImageRef = firebase.database().ref().child('Users').child(userId).child('images').child(imageId).child('id');
             
-            newImageRef.set(imageId).then(function(succsess) {
+            newImageRef.set(imageId).then(function(success) {
                 console.log('Id set successfully');
             }).catch(function(error) {
                 console.log(error);
@@ -76,9 +75,9 @@ appModule.service('uploadPhotoService', function() {
 
     this.setAvatar = function(myAvatar) {
         var smallAvatarPhoto;
-        var bigAvatarPhoto = photo;
+        //var bigAvatarPhoto = photo;
         
-        var bigAvatarName = 'bigAvatar';
+        //var bigAvatarName = 'bigAvatar';
         var smallAvatarName = 'smallAvatar';
         
         // convert base64 to blob for uploading to Firebase
@@ -110,24 +109,11 @@ appModule.service('uploadPhotoService', function() {
         base64ToBlob(myAvatar);
 
         var userId = sessionStorage.getItem('currentUserId');
+        var userRef = firebase.database().ref().child('Users').child(userId);
 
         // Get avatars ref in Firebase Storage
-        var bigAvatarRef = firebase.storage().ref().child('images/' + userId + '/avatars/' + bigAvatarName);
+        //var bigAvatarRef = firebase.storage().ref().child('images/' + userId + '/avatars/' + bigAvatarName);
         var smallAvatarRef = firebase.storage().ref().child('images/' + userId + '/avatars/' + smallAvatarName);
-
-        // Push avatars into Firebase Storage
-        bigAvatarRef.put(bigAvatarPhoto).then(function(succsess) {
-            bigAvatarUrl = succsess.metadata.downloadURLs[0];
-        }).catch(function(error) {
-            console.log(error);
-        });
-
-        smallAvatarRef.put(smallAvatarPhoto).then(function(succsess) {
-            var smallAvatarUrl = succsess.metadata.downloadURLs[0];
-        }).catch(function(error) {
-            console.log(error);
-        });
-
 
         // setting avatars into object
         // var userAvatars = {
@@ -135,10 +121,32 @@ appModule.service('uploadPhotoService', function() {
         //     smallAvatar: ''
         // }
 
+        // Push avatars into Firebase Storage
+        // bigAvatarRef.put(bigAvatarPhoto).then(function(success) {
+        //     var bigAvatarUrl = success.metadata.downloadURLs[0];
+        // }).catch(function(error) {
+        //     console.log(error);
+        // });
+
+        function setAvatarToDB(avatarUrl) {
+            var userAvatar = {
+                avatarUrl: avatarUrl
+            }
+
+            userRef.update(userAvatar);
+        }
+
+        smallAvatarRef.put(smallAvatarPhoto).then(function(success) {
+            var smallAvatarUrl = success.metadata.downloadURLs[0];
+            setAvatarToDB(smallAvatarUrl);
+        }).catch(function(error) {
+            console.log(error);
+        });
+
         // set avatars url`s into Firebase Database user obj
         // var userRef = firebase.database().ref().child('Users').child(userId);
 
-        // userRef.push(userAvatars).then(function(succsess) {
+        // userRef.push(userAvatars).then(function(success) {
         //     console.log('Avatars set successfully');
         // }).catch(function(error) {
         //     console.log(error);

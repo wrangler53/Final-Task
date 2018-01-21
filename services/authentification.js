@@ -45,7 +45,7 @@ appModule.service('Authentification', function($state) {
             sessionStorage.removeItem('currentUserName');
             sessionStorage.removeItem('currentUserId');
             self.currentUser.name = '';
-            alert('Sign out succsess');
+            alert('Sign out success');
             $state.go('home');
         }).catch(function(error) {
             return console.log(error);
