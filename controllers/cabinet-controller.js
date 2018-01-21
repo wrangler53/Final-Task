@@ -30,9 +30,8 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
         $location.path('image/' + userId + '/' + photo.id);
     };
 
-    //show Upload photo modal
-    $scope.hideModal = function() {
-        console.log('Hide ctrl');
+    //show/hide Upload photo modal
+    $scope.hideUploadPhotoModal = function() {
         $scope.uploadPhotoModal = false;
     }
 
@@ -40,10 +39,14 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
         $scope.uploadPhotoModal = true;
     };
 
-    //show Add avatar modal
+    //show/hide Add avatar modal
     $scope.showAddAvatarModal = function() {
         $scope.addAvatarModal = true;
     };
+
+    $scope.hideAddAvatarModal = function() {
+        $scope.addAvatarModal = false;
+    }
 
     //Show/Hide share block
     $scope.toggleShareBlock = function(element) {
