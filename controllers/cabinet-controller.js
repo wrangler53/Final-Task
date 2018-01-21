@@ -10,6 +10,7 @@ appModule.controller('cabinetCtrl', ['$scope', '$state', '$location', 'Authentif
     
     userImagesRef.on('value', function(success) {
         $scope.userPhotos = Object.values(success.val());
+        $scope.userPhotos.reverse();
         if(!$scope.$$phase) {
             $scope.$digest();
         }

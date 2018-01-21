@@ -1,5 +1,8 @@
 <div class="container" id="search-page">
-    <div class="content">
+    <div class="content" id="content-nothing" ng-if="searchedImages.length == 0">
+        <div id="nothing">Nothing found :(</div>
+    </div>
+    <div class="content" ng-if="searchedImages.length != 0">
         <div id="found-images" ng-repeat="image in searchedImages">
             <div class="image-container">
                 <img ng-src="{{image.imageUrl}}" alt="image.imageName">

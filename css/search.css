@@ -2,6 +2,20 @@
     background: #F1F1F1;
 }
 
+/* If nothing found */
+#content-nothing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#content-nothing div {
+    font-family: 'Raleway', sans-serif;
+    color: #5E5D5D;
+    font-size: 36px;
+}
+
+
 #search-page .content {
     height: 95%;
     overflow-y: scroll;
