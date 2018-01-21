@@ -12,31 +12,33 @@ appModule.controller('galleryCtrl', ['$scope', '$location', 'Sharing', 'Authenti
                 $scope.allImagesArr.push(imagesObj[key1]);
             }
         }
-        $scope.$digest();
+        if(!$scope.$$phase) {
+            $scope.$digest();
+        }
     });
     
     // Like system
-    $scope.setLike = function(element, photo) {
+    // $scope.setLike = function(element, photo) {
         
-        element.isLike = !element.isLike;
+    //     element.isLike = !element.isLike;
 
-        var userId = sessionStorage.getItem('currentUserId');
-        var imageOwnerId = photo.owner.ownerId;
-        var imageId = photo.id;
+    //     var userId = sessionStorage.getItem('currentUserId');
+    //     var imageOwnerId = photo.owner.ownerId;
+    //     var imageId = photo.id;
 
-        var likesArr = firebase.database().ref().child('Users').child(imageOwnerId).child('images').child(imageId).child('likes');
+    //     var likesArr = firebase.database().ref().child('Users').child(imageOwnerId).child('images').child(imageId).child('likes');
 
-        if(element.isLike) {
-            //set user`s like
-            likesArr.push(userId);
+    //     if(element.isLike) {
+    //         //set user`s like
+    //         likesArr.push(userId);
 
-            likesArr.once('value', function(success) {
-                console.log(success.val());
-            })
-        } else {
-            likesArr.child('-L3K4r4Xq9RM3cmOYoEc').remove();
-        }
-    }
+    //         likesArr.once('value', function(success) {
+    //             console.log(success.val());
+    //         })
+    //     } else {
+    //         likesArr.child('-L3K4r4Xq9RM3cmOYoEc').remove();
+    //     }
+    // }
 
     // Go to image page
     $scope.goToImagePage = function(photo) {

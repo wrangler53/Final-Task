@@ -6,6 +6,9 @@ appModule.controller('imageCtrl', ['$scope', '$stateParams', '$location', 'Shari
     imageRef.once('value', function(success) {
         $scope.image = success.val();
         console.log($scope.image);
+        if(!$scope.$$phase) {
+            $scope.$digest();
+        }
     }).catch(function(error) {
         console.log(error);
     });
