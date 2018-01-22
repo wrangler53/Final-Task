@@ -75,7 +75,7 @@ appModule.service('uploadPhotoService', function() {
 
     this.setAvatar = function(myAvatar) {
         var avatarPhoto;
-        var avatarName = 'smallAvatar';
+        var avatarName = 'avatar';
         
         // convert base64 to blob for uploading to Firebase
         function base64ToBlob(image) {
@@ -109,7 +109,7 @@ appModule.service('uploadPhotoService', function() {
         var userRef = firebase.database().ref().child('Users');
 
         // Get avatars ref in Firebase Storage
-        var avatarRef = firebase.storage().ref().child('images/' + userId + '/avatars/' + avatarName);
+        var avatarRef = firebase.storage().ref().child('images/' + userId + '/avatar/' + avatarName);
 
         // Set avatar url to Firebase Database
         function setAvatarToDB(avatarUrl) {
