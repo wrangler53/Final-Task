@@ -118,3 +118,15 @@
 .add-image img:hover {
     cursor: pointer;
 }
+
+@media(max-width: 580px) {
+    .cabinet-item {
+        width: 98%;
+    }
+
+    .add-image {
+        position: inherit;
+    width: 30px;
+    margin-left: auto;
+    }
+}

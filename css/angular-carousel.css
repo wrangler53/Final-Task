@@ -55,6 +55,7 @@
 
 .ng-carousel slide img {
     max-height: 95%;
+    max-width: 95%;
 }
 
 .ng-carousel .carousel-arrow {
@@ -87,4 +88,10 @@
 
 .ng-carousel .carousel-arrow.carousel-arrow-right {
    right: 0;
+}
+
+@media(max-width: 768px) {
+    .ng-carousel .carousel-arrow {
+        display: none;
+    }
 }

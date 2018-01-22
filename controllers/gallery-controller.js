@@ -13,15 +13,10 @@ appModule.controller('galleryCtrl', ['$scope', '$location', 'Sharing', 'Authenti
                 $scope.allImagesArr.push(imagesObj[key1]);
             }
         }
-
-        console.log($scope.allImagesArr);
         
         $scope.allImagesArr.sort(function() {
-            console.log(0.5 - Math.random());
             return 0.5 - Math.random();
         })
-
-        console.log($scope.allImagesArr);
 
         if(!$scope.$$phase) {
             $scope.$digest();

@@ -13,6 +13,7 @@
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
     color: #5E5D5D;
+    overflow-y: auto;
 }
 
 #about .content-block h1 {

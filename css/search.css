@@ -103,3 +103,9 @@
     background-color: #CDCDCD;
     border-radius: 10px;
 }
+
+@media(max-width: 580px) {
+    #search-page .image-container img {
+        max-width: 100%;
+    }
+}

@@ -115,6 +115,7 @@ header {
     width: 133px;
     height: 80px;
     background: url('../test_photos/logo.png');
+    background-size: contain;
 }
 
 /*Menu*/
@@ -371,7 +372,11 @@ img.like-icon {
 
 /*mobile*/
 @media(max-width: 580px) {
-    .form-container,
+    .content,
+    .form-container {
+        width: 95%;
+    }
+
     .header-container {
         width: 100%;
     }

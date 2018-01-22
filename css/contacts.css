@@ -76,3 +76,15 @@
     color: white;
     font-size: 12px;
 }
+
+/*mobile*/
+@media(max-width: 580px) {
+    #contacts .content {
+        flex-direction: column;    
+    }
+
+    .content-block {
+        width: 100%;
+        height: 90%;
+    }
+}

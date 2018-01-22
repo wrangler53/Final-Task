@@ -112,3 +112,13 @@
 #modal-add-avatar img-crop {
     overflow: inherit;
 }
+
+@media(max-width: 580px) {
+    .modal-content {
+        width: 95% !important;
+    }
+
+    .modal-controls .btn-submit {
+        width: 30%;
+    }
+}
