@@ -113,6 +113,13 @@
     overflow: inherit;
 }
 
+@media(max-width: 768px) {
+    .modal-content {
+        width: 85% !important;
+        height: 55% !important;
+    }
+}
+
 @media(max-width: 580px) {
     .modal-content {
         width: 95% !important;

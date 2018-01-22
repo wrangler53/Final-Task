@@ -368,17 +368,20 @@ img.like-icon {
     .form-container {
         width: 60%;
     }
-}
 
-/*mobile*/
-@media(max-width: 580px) {
-    .content,
-    .form-container {
+    .content {
         width: 95%;
     }
 
     .header-container {
         width: 100%;
+    }
+}
+
+/*mobile*/
+@media(max-width: 580px) {
+    .form-container {
+        width: 95%;
     }
 
     #search input,

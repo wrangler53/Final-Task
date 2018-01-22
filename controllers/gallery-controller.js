@@ -13,14 +13,15 @@ appModule.controller('galleryCtrl', ['$scope', '$location', 'Sharing', 'Authenti
                 $scope.allImagesArr.push(imagesObj[key1]);
             }
         }
-        
+
+        // Sort images
         $scope.allImagesArr.sort(function() {
             return 0.5 - Math.random();
         })
-
+    
         if(!$scope.$$phase) {
             $scope.$digest();
-        }
+        }        
     });
     
     // Like system
@@ -33,14 +34,6 @@ appModule.controller('galleryCtrl', ['$scope', '$location', 'Sharing', 'Authenti
         var imageId = photo.id;
         
         var likesObj = firebase.database().ref().child('Users').child(imageOwnerId).child('images').child(imageId).child('likes');
-
-        // Read numLikes
-        likesObj.child('numLikes').once('value', function(success){
-            $scope.likesNumber = success.val();
-            if(!$scope.$$phase) { 
-                $scope.$digest();
-            }
-        })
 
         if(element.isLike) {
             //set user`s like

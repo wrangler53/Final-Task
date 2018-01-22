@@ -33,3 +33,9 @@
     text-align: justify;
 }
 
+@media(max-width: 768px) {
+    #about .content-block {
+        width: 100%;
+    }
+}
+

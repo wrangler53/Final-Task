@@ -33,6 +33,15 @@
     cursor: pointer;
 }
 
+@media(max-width: 768px) {
+    .gallery-item {
+        width: 36.8vh;
+        height: 36.8vh;
+        margin: 0 auto;
+        float: inherit
+    }
+}
+
 @media(max-width: 580px) {
     .gallery-item {
         width: 100%;
