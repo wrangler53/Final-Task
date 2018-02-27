@@ -14,9 +14,10 @@
 
         <div class="likes icon-block">
             <input type="checkbox" id="like-checkbox">
-            <label for="like-checkbox">
-                <img src="./images/like.svg" class="like-icon">
-                <span class="likes-num">1234</span>
+            <label for="like-checkbox" ng-click="setLike(this, photo)">
+                <img src="./images/like.svg" class="like-icon" ng-if="!isLike">
+                <img src="./images/like-active.svg" class="like-icon" ng-if="isLike">
+                <span class="likes-num">{{photo.likes.numLikes}}</span>
             </label>            
         </div>
     </div>

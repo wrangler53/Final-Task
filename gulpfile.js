@@ -10,10 +10,13 @@ var gutil = require('gulp-util');
 var jshint = require('gulp-jshint');
 var rename = require('gulp-rename');
 var minimages = require('gulp-imagemin');
+var sourcemap = require('gulp-sourcemaps');
 
 /* Make JS */
 gulp.task('make-js', function() {
     return gulp.src(['components/*', 'controllers/*', 'directives/*', 'services/*', 'app-module.js'])
+    // Init SourceMap creation
+    .pipe(sourcemap.init())
     // Check for mistakes in code rules
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
@@ -25,6 +28,8 @@ gulp.task('make-js', function() {
     .pipe(minjs())
     // On minify error
     .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+    // Create SourceMap
+    .pipe(sourcemap.write('.'))
     // Rename to app.min.js
     .pipe(rename({suffix: '.min'}))
     // Get final file

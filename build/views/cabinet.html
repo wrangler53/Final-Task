@@ -2,7 +2,8 @@
     <div class="content">
         <div class="content-header">
             <div class="user-photo" ng-click="showAddAvatarModal()">
-                <img src="./images/user.svg">
+                <img src="./images/user.svg" ng-class="{'user-photo-hover': avatar}">
+                <img ng-src="{{avatar}}" ng-if="avatar">
             </div>
             <div class="user-name">{{user.name}}</div>
 
@@ -35,7 +36,7 @@
         
                 <div class="likes icon-block">
                     <img src="./images/like-active.svg" class="like-icon">
-                    <span class="likes-num">1234</span>
+                    <span class="likes-num">{{photo.likes.numLikes}}</span>
                 </div>
             </div>
         </div>
@@ -43,6 +44,6 @@
 </div>
 
 <!-- Add user`s avatar modal window -->
-<!-- <add-avatar-modal show="addAvatarModal" heading="Add Avatar"></add-avatar-modal> -->
+<add-avatar-modal ng-if="addAvatarModal" hide="hideAddAvatarModal()" heading="Add Avatar"></add-avatar-modal>
 <!-- Upload photo modal window -->
-<upload-photo-modal show="uploadPhotoModal" heading="Upload Photo"></upload-photo-modal>
+<upload-photo-modal ng-if="uploadPhotoModal" hide="hideUploadPhotoModal()" heading="Upload Photo"></upload-photo-modal>
