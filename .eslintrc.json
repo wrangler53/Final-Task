@@ -1,0 +1,17 @@
+{
+    "rules": {
+        "no-console": "off",
+        "code": 40,
+        "max-len": [2, {"code": 80, "tabWidth": 4, "ignoreUrls": true}],
+        "quotes": [2, "single", { "avoidEscape": true }]
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jquery": true
+    },
+    "extends": [
+        "airbnb-base",
+        "eslint:recommended"
+    ]
+}
