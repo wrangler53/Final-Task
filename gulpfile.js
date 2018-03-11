@@ -11,11 +11,10 @@ var jshint = require('gulp-jshint');
 var rename = require('gulp-rename');
 var minimages = require('gulp-imagemin');
 var sourcemap = require('gulp-sourcemaps');
-var gulpDist = require('gulp-npm-dist');
 
 /* Make JS */
 gulp.task('make-js', function() {
-    return gulp.src(['components/*', 'controllers/*', 'directives/*', 'services/*', 'app-module.js'])
+    return gulp.src(['app-module.js', 'services/*', 'components/*', 'controllers/*', 'directives/*'])
     // Init SourceMap creation
     .pipe(sourcemap.init())
     // Check for mistakes in code rules
@@ -77,11 +76,6 @@ gulp.task('libs', function() {
     .pipe(gulp.dest('build/lib'));
 });
 
-gulp.task('node-libs', function() {
-    return gulp.src(gulpDist(), {base:'./node_modules'})
-    .pipe(gulp.dest('./build/lib'));
-});
-
 /* Minify images */
 gulp.task('image-min', function() {
     return gulp.src('./images/*')
@@ -101,4 +95,4 @@ gulp.task('check-err', function() {
 });
 
 /* Build production project */
-gulp.task('build', ['make-js', 'compile-css', 'index', 'views', 'fonts', 'libs', 'image-min']);
+gulp.task('build', ['make-js', 'compile-css', 'index', 'views', 'fonts', 'image-min']);
